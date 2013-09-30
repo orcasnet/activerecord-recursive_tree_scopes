@@ -35,7 +35,7 @@ module RecursiveTreeRelations
       SELECT id
         FROM ancestor_search
         WHERE id != #{instance.id}
-        ORDER BY pathX
+        ORDER BY path
     SQL
     tree_sql.gsub(/\s{2,}/, ' ')
   end
@@ -59,7 +59,7 @@ module RecursiveTreeRelations
       SELECT id
         FROM descendants_search
         WHERE id != #{instance.id}
-        ORDER BY pathX
+        ORDER BY path
     SQL
     tree_sql.gsub(/\s{2,}/, ' ')
   end
