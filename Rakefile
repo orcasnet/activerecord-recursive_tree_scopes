@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "activerecord-recursive_tree_relations"
   gem.homepage = "http://github.com/jwulff/activerecord-recursive_tree_relations"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Using an ActiveRecord relation, recursively query trees."
+  gem.description = "Using an ActiveRecord relation, recursively query trees."
   gem.email = "johnw@orcasnet.com"
   gem.authors = ["John Wulff"]
   # dependencies defined in Gemfile

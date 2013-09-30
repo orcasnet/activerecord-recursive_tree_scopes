@@ -1,0 +1,5 @@
+adapter: postgresql
+database: activerecord-recursive_tree_relations-test
+username: activerecord-recursive_tree_relations-test
+password:
+host: localhost
