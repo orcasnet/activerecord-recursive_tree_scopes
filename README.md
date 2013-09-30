@@ -1,6 +1,6 @@
 # ActiveRecord Recursive Tree Relations
 
-Using an ActiveRecord Relation, recursively query trees.
+Using an ActiveRecord relation, recursively query trees.
 
 Let's say you've got an ActiveRecord model `Employee` with attributes `id`, 
 `name`, and `manager_id`. Using stock belongs_to and has_many relations it's 
@@ -10,7 +10,7 @@ easy to build relations to an `Employee`'s manager and directly managed
 ```ruby
 class Employee < ActiveRecord::Base
   belongs_to :manager,          class_name: 'Employee'
-  has_many   :directly_managed, class_name: 'Employee'
+  has_many   :directly_managed, class_name: 'Employee', foreign_key: :manager_id
 ...
 ```
 
