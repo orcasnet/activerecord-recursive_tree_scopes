@@ -1,6 +1,10 @@
 = activerecord-recursive_tree_relations
 
-Description goes here.
+Provides ActiveRecord::Relations for querying tree structure ancestors and
+descendants.
+
+== Requirements
+Only PostgreSQL is supported.
 
 == Contributing to activerecord-recursive_tree_relations
  
