@@ -1,23 +1,32 @@
-= activerecord-recursive_tree_relations
+# ActiveRecord Recursive Tree Relations
 
-Provides ActiveRecord::Relations for querying tree structure ancestors and
+ActiveRecord::Relations for querying tree structure ancestors and
 descendants.
 
-== Requirements
-Only PostgreSQL is supported.
+## Installation
+Add `gem 'activerecord-recursive_tree_relations'` to your Gemfile
 
-== Contributing to activerecord-recursive_tree_relations
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
-* Fork the project.
-* Start a feature/bugfix branch.
-* Commit and push until you are happy with your contribution.
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+## Example Usage
+Let's say you've got an ActiveRecord model `Employee` with attributes `id`, 
+`name`, and `manager_id`. Using stock belongs_to and has_many relations it's 
+easy to build a relation to an `Employee`'s manager and directly managed 
+`Employee`'s.
 
-== Copyright
+```ruby
+class Employee < ActiveRecord::Base
+  belongs_to :manager,          class_name: 'Employee'
+  has_many   :directly_managed, class_name: 'Employee'
+
+  has_tree_ancestors   :managers, key: :manager_id
+  has_tree_descendants :managed,  key: :manager_id
+end
+```
+
+## Requirements
+* ActiveRecord >= 3.0.0
+* PostgreSQL >= 8.4
+
+## Copyright
 
 Copyright (c) 2013 John Wulff. See LICENSE.txt for
 further details.
-
