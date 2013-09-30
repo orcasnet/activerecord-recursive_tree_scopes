@@ -1,6 +1,7 @@
 # ActiveRecord Recursive Tree Relations
 
-Using an ActiveRecord relation, recursively query trees.
+Using an ActiveRecord relation, recursively traverse trees using a 
+**single SQL query**.
 
 Let's say you've got an ActiveRecord model `Employee` with attributes `id`, 
 `name`, and `manager_id`. Using stock belongs_to and has_many relations it's 
