@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "activerecord-recursive_tree_relations.gemspec",
     "lib/activerecord-recursive_tree_relations.rb",
     "spec/activerecord-recursive_tree_relations_spec.rb",
     "spec/database.yml",
