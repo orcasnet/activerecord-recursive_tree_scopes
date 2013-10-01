@@ -2,7 +2,7 @@ module RecursiveTreeScopes
   module ModelMixin
     def has_ancestors(ancestors_name = :ancestors, options = {})
       options[:key] ||= :parent_id
-      
+
       scope ancestors_name, lambda{ |record|
         RecursiveTreeScopes::Scopes.ancestors_for(record, options[:key])
       }
@@ -36,20 +36,21 @@ module RecursiveTreeScopes
       end
 
       def ancestors_sql_for(instance, key)
+        keys = [ key ].flatten
         tree_sql =  <<-SQL
-          WITH RECURSIVE ancestor_search(id, #{key}, path) AS (
-              SELECT id, #{key}, ARRAY[id]
+          WITH RECURSIVE ancestor_search(id, #{keys.join ', '}, path) AS (
+              SELECT id, #{keys.join ', '}, ARRAY[id]
                 FROM #{instance.class.table_name}
                 WHERE id = #{instance.id}
             UNION ALL
-              SELECT #{instance.class.table_name}.id, #{instance.class.table_name}.#{key}, path || #{instance.class.table_name}.id
+              SELECT #{instance.class.table_name}.id, #{keys.collect{|key| "#{instance.class.table_name}.#{key}" }.join ', '}, path || #{instance.class.table_name}.id
                 FROM #{instance.class.table_name}, ancestor_search
-                WHERE ancestor_search.#{key} = #{instance.class.table_name}.id
+                WHERE #{keys.collect{ |key| "ancestor_search.#{key} = #{instance.class.table_name}.id" }.join ' OR '}
             )
           SELECT id
             FROM ancestor_search
             WHERE id != #{instance.id}
-            ORDER BY path
+            ORDER BY array_length(path, 1), path
         SQL
         tree_sql.gsub(/\s{2,}/, ' ')
       end
@@ -59,6 +60,7 @@ module RecursiveTreeScopes
       end
 
       def descendants_sql_for(instance, key)
+        keys = [ key ].flatten
         tree_sql =  <<-SQL
           WITH RECURSIVE descendants_search(id, path) AS (
               SELECT id, ARRAY[id]
@@ -67,13 +69,14 @@ module RecursiveTreeScopes
             UNION ALL
               SELECT #{instance.class.table_name}.id, path || #{instance.class.table_name}.id
               FROM descendants_search
-              JOIN #{instance.class.table_name} ON #{instance.class.table_name}.#{key} = descendants_search.id
+              JOIN #{instance.class.table_name}
+              ON #{keys.collect{ |key| "descendants_search.id = #{instance.class.table_name}.#{key}" }.join ' OR '}
               WHERE NOT #{instance.class.table_name}.id = ANY(path)
           )
           SELECT id
             FROM descendants_search
             WHERE id != #{instance.id}
-            ORDER BY path
+            ORDER BY array_length(path, 1), path
         SQL
         tree_sql.gsub(/\s{2,}/, ' ')
       end

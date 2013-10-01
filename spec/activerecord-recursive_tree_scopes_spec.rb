@@ -137,6 +137,46 @@ describe "ActiverecordRecursiveTreeScopes" do
     let!(:mark)    { Person.create! name: 'Mark', father: bill, mother: tamara }
     let!(:buster)  { Person.create! name: 'Buster', father: john }
 
+    describe 'George' do
+      subject { george }
+      its(:mother) { should be_nil }
+      its(:father) { should be_nil }
+      its(:progenitors) { should == [] }
+      its(:progeny) { should == [ bill, john, mark, buster ] }
+    end
+
+    describe 'Hazel' do
+      subject { hazel }
+      its(:mother) { should be_nil }
+      its(:father) { should be_nil }
+      its(:progenitors) { should == [] }
+      its(:progeny) { should == [ bill, john, mark, buster ] }
+    end
+
+    describe 'William' do
+      subject { william }
+      its(:mother) { should be_nil }
+      its(:father) { should be_nil }
+      its(:progenitors) { should == [] }
+      its(:progeny) { should == [ tamara, john, mark, buster ] }
+    end
+
+    describe 'Sharlyn' do
+      subject { sharlyn }
+      its(:mother) { should be_nil }
+      its(:father) { should be_nil }
+      its(:progenitors) { should == [] }
+      its(:progeny) { should == [ tamara, john, mark, buster ] }
+    end
+
+    describe 'Bill' do
+      subject { bill }
+      its(:mother) { should == hazel }
+      its(:father) { should == george }
+      its(:progenitors) { should == [ george, hazel ] }
+      its(:progeny) { should == [ john, mark, buster ] }
+    end
+
     describe 'Tamara' do
       subject { tamara }
       its(:mother) { should == sharlyn }
@@ -149,8 +189,24 @@ describe "ActiverecordRecursiveTreeScopes" do
       subject { john }
       its(:mother) { should == tamara }
       its(:father) { should == bill }
-      its(:progenitors) { should == [ william, sharlyn, george, hazel, bill, tamara ] }
+      its(:progenitors) { should == [ george, hazel, bill, william, sharlyn, tamara ] }
       its(:progeny) { should == [ buster ] }
+    end
+
+    describe 'Mark' do
+      subject { mark }
+      its(:mother) { should == tamara }
+      its(:father) { should == bill }
+      its(:progenitors) { should == [ george, hazel, bill, william, sharlyn, tamara ] }
+      its(:progeny) { should == [] }
+    end
+
+    describe 'Buster' do
+      subject { buster }
+      its(:mother) { should be_nil }
+      its(:father) { should == john }
+      its(:progenitors) { should == [ george, hazel, bill, william, sharlyn, tamara, john ] }
+      its(:progeny) { should == [] }
     end
   end
 end
