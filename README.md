@@ -96,7 +96,7 @@ ORDER BY employees.id
 
 
 ## Requirements
-* ActiveRecord >= 3.0.0
+* ActiveRecord >= 3.1.0
 * PostgreSQL >= 8.4
 
 
