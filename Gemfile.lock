@@ -92,10 +92,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (>= 3.1)
+  activerecord (>= 3)
   activerecord-jdbcpostgresql-adapter
-  bundler (~> 1.0)
-  jeweler (~> 1.8.7)
+  bundler
+  jeweler
   pg
-  rdoc (~> 3.12)
-  rspec (~> 2.8.0)
+  rdoc
+  rspec
