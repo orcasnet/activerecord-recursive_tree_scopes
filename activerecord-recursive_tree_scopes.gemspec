@@ -4,13 +4,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "activerecord-recursive_tree_relations"
+  s.name = "activerecord-recursive_tree_scopes"
   s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["John Wulff"]
   s.date = "2013-10-01"
-  s.description = "Using an ActiveRecord relation, recursively query trees."
+  s.description = "Using an ActiveRecord scope, recursively query trees."
   s.email = "johnw@orcasnet.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -30,43 +30,43 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "activerecord-recursive_tree_relations.gemspec",
-    "lib/activerecord-recursive_tree_relations.rb",
-    "spec/activerecord-recursive_tree_relations_spec.rb",
+    "activerecord-recursive_tree_scopes.gemspec",
+    "lib/activerecord-recursive_tree_scopes.rb",
+    "spec/activerecord-recursive_tree_scopes_spec.rb",
     "spec/database.yml",
     "spec/database.yml.travis",
     "spec/spec_helper.rb",
     "spec/support/create_schema.rb",
     "spec/support/employee.rb"
   ]
-  s.homepage = "http://github.com/jwulff/activerecord-recursive_tree_relations"
+  s.homepage = "http://github.com/jwulff/activerecord-recursive_tree_scopes"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "2.0.3"
-  s.summary = "Using an ActiveRecord relation, recursively query trees."
+  s.rubygems_version = "2.0.6"
+  s.summary = "Using an ActiveRecord scope, recursively query trees."
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<activerecord>, ["~> 3.0"])
-      s.add_development_dependency(%q<rspec>, ["~> 2.8.0"])
-      s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.8.7"])
+      s.add_runtime_dependency(%q<activerecord>, [">= 3"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
+      s.add_development_dependency(%q<rdoc>, [">= 0"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
-      s.add_dependency(%q<activerecord>, ["~> 3.0"])
-      s.add_dependency(%q<rspec>, ["~> 2.8.0"])
-      s.add_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.8.7"])
+      s.add_dependency(%q<activerecord>, [">= 3"])
+      s.add_dependency(%q<rspec>, [">= 0"])
+      s.add_dependency(%q<rdoc>, [">= 0"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
-    s.add_dependency(%q<activerecord>, ["~> 3.0"])
-    s.add_dependency(%q<rspec>, ["~> 2.8.0"])
-    s.add_dependency(%q<rdoc>, ["~> 3.12"])
-    s.add_dependency(%q<bundler>, ["~> 1.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.8.7"])
+    s.add_dependency(%q<activerecord>, [">= 3"])
+    s.add_dependency(%q<rspec>, [">= 0"])
+    s.add_dependency(%q<rdoc>, [">= 0"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
 
