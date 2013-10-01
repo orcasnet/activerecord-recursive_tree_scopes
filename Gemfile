@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-#gem 'activerecord', '~> 3.0'
-gem 'activerecord', '~> 3.0.0'
+gem 'activerecord', '>= 3.1'
+
 group :development do
   gem 'rspec',   '~> 2.8.0'
   gem 'rdoc',    '~> 3.12'

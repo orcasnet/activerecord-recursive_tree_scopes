@@ -14,7 +14,7 @@ env:
 script:
   - rm spec/database.yml
   - mv spec/database.yml.travis spec/database.yml
-  - bundle exec rake
+  - bundle exec rspec spec
 before_script:
   - psql -c 'create database activerecordrecursivetreerelationstest' -U postgres
 
