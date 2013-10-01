@@ -1,5 +1,5 @@
 module RecursiveTreeRelations
-  def has_tree_ancestors(ancestors_name = :ancestors, options = {})
+  def has_ancestors(ancestors_name = :ancestors, options = {})
     options[:key] ||= :parent_id
     class_eval <<-EOF
       def #{ancestors_name}
@@ -8,7 +8,7 @@ module RecursiveTreeRelations
     EOF
   end
 
-  def has_tree_descendants(descendants_name = :descendants, options = {})
+  def has_descendants(descendants_name = :descendants, options = {})
     options[:key] ||= :parent_id
     class_eval <<-EOF
       def #{descendants_name}

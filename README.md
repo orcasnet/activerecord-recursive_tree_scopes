@@ -24,8 +24,8 @@ ancestors or descendants for a record in a tree.
 
 ```ruby
 ...
-  has_tree_ancestors   :managers, key: :manager_id
-  has_tree_descendants :managed,  key: :manager_id
+  has_ancestors   :managers, key: :manager_id
+  has_descendants :managed,  key: :manager_id
 end
 ```
 
