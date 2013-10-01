@@ -3,7 +3,6 @@ rvm:
   - 1.9.2
   - 1.9.3
   - 2.0.0
-  - 2.1.0-preview1
   - jruby-19mode
   - rbx-19mode
 gemfile:
@@ -19,3 +18,8 @@ script:
   - bundle exec rake
 before_script:
   - psql -c 'create database activerecordrecursivetreerelationstest' -U postgres
+
+matrix:
+  exclude:
+- rvm: 1.9.2
+  gemfile: .travis/activerecord-4.0.gemfile
