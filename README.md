@@ -105,6 +105,12 @@ ORDER BY employees.id
 Add `gem 'activerecord-recursive_tree_scopes'` to your Gemfile.
 
 
+## Alternatives
+
+The [Edge](https://github.com/JackC/edge) gem is similar but makes better use 
+of Arel and relations.
+
+
 ## Thanks
 
 Thanks to [Joshua Davey](https://github.com/jgdavey) who's 
