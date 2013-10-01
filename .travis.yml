@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 1.9.2
+  - 1.9.3
+  - 2.0.0
+env:
+  - DB=postgresql
+script:
+  - rm spec/database.yml
+  - mv spec/database.yml.travis spec/database.yml
+  - bundle exec rake
+before_script:
+  - psql -c 'create database activerecord-recursive_tree_relations-test' -U postgres
