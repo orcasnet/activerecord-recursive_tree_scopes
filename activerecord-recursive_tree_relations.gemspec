@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "activerecord-recursive_tree_relations"
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["John Wulff"]
-  s.date = "2013-09-30"
+  s.date = "2013-10-01"
   s.description = "Using an ActiveRecord relation, recursively query trees."
   s.email = "johnw@orcasnet.com"
   s.extra_rdoc_files = [
@@ -19,6 +19,11 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    ".travis.yml",
+    ".travis/activerecord-3.0.gemfile",
+    ".travis/activerecord-3.1.gemfile",
+    ".travis/activerecord-3.2.gemfile",
+    ".travis/activerecord-4.0.gemfile",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -29,6 +34,7 @@ Gem::Specification.new do |s|
     "lib/activerecord-recursive_tree_relations.rb",
     "spec/activerecord-recursive_tree_relations_spec.rb",
     "spec/database.yml",
+    "spec/database.yml.travis",
     "spec/spec_helper.rb",
     "spec/support/create_schema.rb",
     "spec/support/employee.rb"
