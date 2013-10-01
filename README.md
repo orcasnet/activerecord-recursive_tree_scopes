@@ -1,15 +1,14 @@
-# ActiveRecord Recursive Tree Relations
+# ActiveRecord Recursive Tree Scopes
 
-[![Build Status](https://travis-ci.org/jwulff/activerecord-recursive_tree_relations.png?branch=master)](https://travis-ci.org/jwulff/activerecord-recursive_tree_relations)
-[![Code Climate](https://codeclimate.com/github/jwulff/activerecord-recursive_tree_relations.png)](https://codeclimate.com/github/jwulff/activerecord-recursive_tree_relations)
+[![Build Status](https://travis-ci.org/jwulff/activerecord-recursive_tree_scopes.png?branch=master)](https://travis-ci.org/jwulff/activerecord-recursive_tree_scopes)
+[![Code Climate](https://codeclimate.com/github/jwulff/activerecord-recursive_tree_scopes.png)](https://codeclimate.com/github/jwulff/activerecord-recursive_tree_scopes)
 
-Using an ActiveRecord relation, recursively traverse trees using a 
-**single SQL query**.
+Using ActiveRecord scopes, recursively traverse trees using a **single SQL 
+query**.
 
 Let's say you've got an ActiveRecord model `Employee` with attributes `id`, 
 `name`, and `manager_id`. Using stock belongs_to and has_many relations it's 
-easy to build relations to an `Employee`'s manager and directly managed 
-`Employee`'s.
+easy to query for an `Employee`'s manager and directly managed `Employee`'s.
 
 ```ruby
 class Employee < ActiveRecord::Base
@@ -18,9 +17,9 @@ class Employee < ActiveRecord::Base
 ...
 ```
 
-**ActiveRecord Recursive Tree Relations** provides two new relation 
-declarations. These relations, using a **single SQL query**, return all 
-ancestors or descendants for a record in a tree.
+**ActiveRecord Recursive Tree Scopes** provides two scopes. These scopes, 
+using a **single SQL query**, match all ancestors or descendants for a record 
+in a tree.
 
 ```ruby
 ...
@@ -32,7 +31,7 @@ end
 ## A Single Query
 
 Yep, a single query. Thanks to PostgreSQL's [`WITH RECURSIVE`](http://www.postgresql.org/docs/9.2/static/queries-with.html)
-it's possible to recursively query single tables.
+it's possible to recursively match records in a single query.
 
 Using the model above as an example, let's say you've got an Employee with an 
 `id` of 42. Here's the SQL that would be generated for `employee.managed`
@@ -62,7 +61,7 @@ ORDER BY employees.id
 ```
 
 
-## Relational
+## Friendly
 
 Go ahead, chain away:
 ```ruby
@@ -103,7 +102,7 @@ ORDER BY employees.id
 
 ## Installation
 
-Add `gem 'activerecord-recursive_tree_relations'` to your Gemfile.
+Add `gem 'activerecord-recursive_tree_scopes'` to your Gemfile.
 
 
 ## Thanks
