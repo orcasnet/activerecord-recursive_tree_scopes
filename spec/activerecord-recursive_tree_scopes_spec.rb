@@ -141,16 +141,16 @@ describe "ActiverecordRecursiveTreeScopes" do
       subject { tamara }
       its(:mother) { should == sharlyn }
       its(:father) { should == william }
-      its(:ancestors) { should == [ william, sharlyn ] }
-      its(:descendants) { should == [ john, mark, buster ] }
+      its(:progenitors) { should == [ william, sharlyn ] }
+      its(:progeny) { should == [ john, mark, buster ] }
     end
 
     describe 'John' do
       subject { john }
       its(:mother) { should == tamara }
       its(:father) { should == bill }
-      its(:ancestors) { should == [ william, sharlyn, george, hazel, bill, tamara ] }
-      its(:descendants) { should == [ buster ] }
+      its(:progenitors) { should == [ william, sharlyn, george, hazel, bill, tamara ] }
+      its(:progeny) { should == [ buster ] }
     end
   end
 end
