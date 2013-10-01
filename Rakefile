@@ -14,11 +14,11 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "activerecord-recursive_tree_relations"
-  gem.homepage = "http://github.com/jwulff/activerecord-recursive_tree_relations"
+  gem.name = "activerecord-recursive_tree_scopes"
+  gem.homepage = "http://github.com/jwulff/activerecord-recursive_tree_scopes"
   gem.license = "MIT"
-  gem.summary = "Using an ActiveRecord relation, recursively query trees."
-  gem.description = "Using an ActiveRecord relation, recursively query trees."
+  gem.summary = "Using an ActiveRecord scope, recursively query trees."
+  gem.description = "Using an ActiveRecord scope, recursively query trees."
   gem.email = "johnw@orcasnet.com"
   gem.authors = ["John Wulff"]
   # dependencies defined in Gemfile
@@ -43,7 +43,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "activerecord-recursive_tree_relations #{version}"
+  rdoc.title = "activerecord-recursive_tree_scopes #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

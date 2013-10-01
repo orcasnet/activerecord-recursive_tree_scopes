@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "ActiverecordRecursiveTreeRelations" do
+describe "ActiverecordRecursiveTreeScopes" do
   let!(:alonso)  { Employee.create! name: 'Alonso'                    }
   let!(:alfred)  { Employee.create! name: 'Alfred'                    }
   let!(:barry)   { Employee.create! name: 'Barry',   manager: alfred  }
