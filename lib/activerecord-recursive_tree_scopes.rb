@@ -6,21 +6,21 @@ module RecursiveTreeScopes
       scope ancestors_name, lambda{ |record|
         RecursiveTreeScopes::Scopes.ancestors_for(record, options[:key])
       }
-    
+
       class_eval <<-EOF
         def #{ancestors_name}
           self.class.#{ancestors_name}(self)
         end
       EOF
     end
-    
+
     def has_descendants(descendants_name = :descendants, options = {})
       options[:key] ||= :parent_id
-    
+
       scope descendants_name, lambda{ |record|
         RecursiveTreeScopes::Scopes.descendants_for(record, options[:key])
       }
-    
+
       class_eval <<-EOF
         def #{descendants_name}
           self.class.#{descendants_name}(self)
@@ -34,7 +34,7 @@ module RecursiveTreeScopes
       def ancestors_for(instance, key)
         instance.class.where("#{instance.class.table_name}.id IN (#{ancestors_sql_for instance, key})").order("#{instance.class.table_name}.id")
       end
-      
+
       def ancestors_sql_for(instance, key)
         tree_sql =  <<-SQL
           WITH RECURSIVE ancestor_search(id, #{key}, path) AS (
@@ -53,11 +53,11 @@ module RecursiveTreeScopes
         SQL
         tree_sql.gsub(/\s{2,}/, ' ')
       end
-      
+
       def descendants_for(instance, key)
         instance.class.where("#{instance.class.table_name}.id IN (#{descendants_sql_for instance, key})").order("#{instance.class.table_name}.id")
       end
-      
+
       def descendants_sql_for(instance, key)
         tree_sql =  <<-SQL
           WITH RECURSIVE descendants_search(id, path) AS (
