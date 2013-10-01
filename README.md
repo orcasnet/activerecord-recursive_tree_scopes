@@ -113,7 +113,7 @@ of Arel and relations.
 
 ## Thanks
 
-Thanks to [Joshua Davey](https://github.com/jgdavey) who's 
+Thanks to [Joshua Davey](https://github.com/jgdavey), his 
 [blog post](http://hashrocket.com/blog/posts/recursive-sql-in-activerecord) 
 inspired this gem.
 
