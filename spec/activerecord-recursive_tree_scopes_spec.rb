@@ -14,6 +14,20 @@ describe "ActiverecordRecursiveTreeScopes" do
   let!(:edward)  { Employee.create! name: 'Edward',  manager: dick    }
   let!(:frank)   { Employee.create! name: 'Frank',   manager: edward  }
 
+  describe 'chaining' do
+    describe 'ancestors' do
+      it do
+        frank.managers.where(name: 'Barry').should == [ barry ]
+      end
+    end
+
+    describe 'descendants' do
+      it do
+        barry.managed.where("name LIKE ?", 'D%').should == [ dave, daryl, dick ]
+      end
+    end
+  end
+
   describe 'Alonso' do
     subject { alonso }
     its(:manager) { should be_nil }
