@@ -1,5 +1,5 @@
 adapter: postgresql
 username: postgres
 password:
-database: activerecord-recursive_tree_relations-test
+database: activerecordrecursivetreerelationstest
 min_messages: ERROR

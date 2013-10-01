@@ -10,4 +10,4 @@ script:
   - mv spec/database.yml.travis spec/database.yml
   - bundle exec rake
 before_script:
-  - psql -c 'create database activerecord-recursive_tree_relations-test' -U postgres
+  - psql -c 'create database activerecordrecursivetreerelationstest' -U postgres
