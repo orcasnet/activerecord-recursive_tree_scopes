@@ -73,6 +73,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 3.0)
+  activerecord-jdbcpostgresql-adapter
   bundler (~> 1.0)
   jeweler (~> 1.8.7)
   pg

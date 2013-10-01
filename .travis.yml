@@ -3,6 +3,14 @@ rvm:
   - 1.9.2
   - 1.9.3
   - 2.0.0
+  - 2.1.0-preview1
+  - jruby-19mode
+  - rbx-19mode
+gemfile:
+  - .travis/activerecord-3.0.gemfile
+  - .travis/activerecord-3.1.gemfile
+  - .travis/activerecord-3.2.gemfile
+  - .travis/activerecord-4.0.gemfile
 env:
   - DB=postgresql
 script:
