@@ -1,7 +1,7 @@
 # ActiveRecord Recursive Tree Relations
 
-[![Build Status](https://travis-ci.org/jwulff/activerecord-recursive_tree_relations.png?branch=master)](https://travis-ci.org/twuzz/twuzz)
-[![Code Climate](https://codeclimate.com/github/jwulff/activerecord-recursive_tree_relations.png)](https://codeclimate.com/github/twuzz/twuzz)
+[![Build Status](https://travis-ci.org/jwulff/activerecord-recursive_tree_relations.png?branch=master)](https://travis-ci.org/jwulff/activerecord-recursive_tree_relations)
+[![Code Climate](https://codeclimate.com/github/jwulff/activerecord-recursive_tree_relations.png)](https://codeclimate.com/github/jwulff/activerecord-recursive_tree_relations)
 
 Using an ActiveRecord relation, recursively traverse trees using a 
 **single SQL query**.
