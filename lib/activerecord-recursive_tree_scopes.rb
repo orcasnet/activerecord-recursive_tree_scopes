@@ -1,6 +1,11 @@
 module RecursiveTreeScopes
   module ModelMixin
-    def has_ancestors(ancestors_name = :ancestors, options = {})
+    def has_ancestors(ancestors_name, options = {})
+      if self.respond_to?(ancestors_name)
+        raise ArgumentError.new("#{self} already responds to #{ancestors_name}. Please pick another name for has_ancestors scope.")
+      end
+
+      options.assert_valid_keys :key
       options[:key] ||= :parent_id
 
       scope ancestors_name, lambda{ |record|
@@ -14,7 +19,11 @@ module RecursiveTreeScopes
       EOF
     end
 
-    def has_descendants(descendants_name = :descendants, options = {})
+    def has_descendants(descendants_name, options = {})
+      if self.respond_to?(descendants_name)
+        raise ArgumentError.new("#{self} already responds to #{descendants_name}. Please pick another name for has_descendants scope.")
+      end
+
       options[:key] ||= :parent_id
 
       scope descendants_name, lambda{ |record|

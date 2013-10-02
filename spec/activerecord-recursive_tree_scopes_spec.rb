@@ -1,6 +1,22 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "ActiverecordRecursiveTreeScopes" do
+  describe 'has_ancestors' do
+    context 'given a scope name that conflicts' do
+      it do
+        lambda{ Employee.has_ancestors :ancestors }.should raise_error(ArgumentError, "Employee already responds to ancestors. Please pick another name for has_ancestors scope.")
+      end
+    end
+  end
+
+  describe 'has_descendants' do
+    context 'given a scope name that conflicts' do
+      it do
+        lambda{ Employee.has_descendants :descendants }.should raise_error(ArgumentError, "Employee already responds to descendants. Please pick another name for has_descendants scope.")
+      end
+    end
+  end
+
   describe 'simple tree' do
     let!(:alonso)  { Employee.create! name: 'Alonso'                    }
     let!(:alfred)  { Employee.create! name: 'Alfred'                    }
