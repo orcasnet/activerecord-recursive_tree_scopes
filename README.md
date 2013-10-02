@@ -61,6 +61,21 @@ ORDER BY employees.id
 ```
 
 
+# Advanced Usage
+Multiple key trees are supported. For example, a `Person` model may have 
+`mother_id` and `father_id` keys. That's no problem, just tell the scope about
+both keys. `person.progenitors` will return all ancestors, mothers and fathers.
+```ruby
+class Person < ActiveRecord::Base
+  belongs_to :mother, class_name: 'Person'
+  belongs_to :father, class_name: 'Person'
+
+  has_ancestors   :progenitors, key: [ :mother_id, :father_id ]
+  has_descendants :progeny,     key: [ :mother_id, :father_id ]
+end
+```
+
+
 ## Friendly
 
 Go ahead, chain away:
