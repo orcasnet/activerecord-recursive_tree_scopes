@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "activerecord-recursive_tree_scopes"
-  s.version = "0.1.2"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["John Wulff"]
-  s.date = "2013-10-01"
+  s.date = "2013-10-02"
   s.description = "Using an ActiveRecord scope, recursively query trees."
   s.email = "johnw@orcasnet.com"
   s.extra_rdoc_files = [
@@ -37,7 +37,8 @@ Gem::Specification.new do |s|
     "spec/database.yml.travis",
     "spec/spec_helper.rb",
     "spec/support/create_schema.rb",
-    "spec/support/employee.rb"
+    "spec/support/employee.rb",
+    "spec/support/person.rb"
   ]
   s.homepage = "http://github.com/jwulff/activerecord-recursive_tree_scopes"
   s.licenses = ["MIT"]
